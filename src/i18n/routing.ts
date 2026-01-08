@@ -1,5 +1,5 @@
-import { defineRouting } from 'next-intl/routing';
 import { createNavigation } from 'next-intl/navigation';
+import { defineRouting } from 'next-intl/routing';
 
 import { locales, defaultLocale } from './config';
 
@@ -25,6 +25,13 @@ export const routing = defineRouting({
 
     '/product/[id]': '/product/[id]',
 
+    '/brand': {
+      nl: '/merk',
+      en: '/brand',
+      de: '/marke',
+      fr: '/marque',
+    },
+
     '/brand/[id]': {
       nl: '/merk/[id]',
       en: '/brand/[id]',
@@ -41,6 +48,37 @@ export const routing = defineRouting({
       en: '/contact',
       de: '/kontakt',
       fr: '/contact',
+    },
+
+    '/login': '/login',
+
+    '/logout': '/logout',
+
+    '/account': '/account',
+
+    '/orders': '/orders',
+
+    '/settings': '/settings',
+
+    '/privacy': {
+      nl: '/privacy',
+      en: '/privacy',
+      de: '/datenschutz',
+      fr: '/confidentialite',
+    },
+
+    '/terms': {
+      nl: '/algemene-voorwaarden',
+      en: '/terms',
+      de: '/agb',
+      fr: '/conditions',
+    },
+
+    '/cookies': {
+      nl: '/cookies',
+      en: '/cookies',
+      de: '/cookies',
+      fr: '/cookies',
     },
   },
 });

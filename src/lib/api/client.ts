@@ -28,9 +28,12 @@ export function makeQueryClient() {
           if (failureCount >= 2) return false;
 
           // Don't retry on 4xx errors (client errors)
-          if (error instanceof Error && 'status' in error) {
-            const status = (error as any).status;
-            if (status >= 400 && status < 500) return false;
+          if (
+            error instanceof Error &&
+            'status' in error &&
+            typeof error.status === 'number'
+          ) {
+            if (error.status >= 400 && error.status < 500) return false;
           }
 
           // Retry on network errors and 5xx errors
@@ -64,11 +67,8 @@ export function getQueryClient() {
   if (isServer) {
     // Server: always create a new QueryClient
     return makeQueryClient();
-  } else {
-    // Browser: use singleton pattern
-    if (!browserQueryClient) {
-      browserQueryClient = makeQueryClient();
-    }
-    return browserQueryClient;
   }
+  // Browser: use singleton pattern
+  browserQueryClient ??= makeQueryClient();
+  return browserQueryClient;
 }

@@ -44,7 +44,8 @@
     "language": "Langue",
     "changeLanguage": "Changer de langue",
     "menu": "Menu",
-    "closeMenu": "Fermer le menu"
+    "closeMenu": "Fermer le menu",
+    "skipToContent": "Aller au contenu"
   },
   "Product": {
     "title": "Produits",

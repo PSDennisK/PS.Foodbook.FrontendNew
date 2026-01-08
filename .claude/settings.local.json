@@ -19,7 +19,9 @@
       "Bash(cmd /c \"if not exist src\\\\lib\\\\hooks mkdir src\\\\lib\\\\hooks\")",
       "Bash(cmd /c \"if not exist src\\\\components\\\\providers mkdir src\\\\components\\\\providers\")",
       "Bash(cmd /c \"if not exist src\\\\app\\\\[locale] mkdir src\\\\app\\\\[locale]\")",
-      "Bash(cmd /c \"if not exist src\\\\lib\\\\auth mkdir src\\\\lib\\\\auth\")"
+      "Bash(cmd /c \"if not exist src\\\\lib\\\\auth mkdir src\\\\lib\\\\auth\")",
+      "Bash(cmd /c \"if not exist src\\\\components\\\\layout mkdir src\\\\components\\\\layout\")",
+      "Bash(npx eslint:*)"
     ]
   }
 }

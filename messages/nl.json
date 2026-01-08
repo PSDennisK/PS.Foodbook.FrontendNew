@@ -44,7 +44,8 @@
     "language": "Taal",
     "changeLanguage": "Taal wijzigen",
     "menu": "Menu",
-    "closeMenu": "Menu sluiten"
+    "closeMenu": "Menu sluiten",
+    "skipToContent": "Ga naar inhoud"
   },
   "Product": {
     "title": "Producten",

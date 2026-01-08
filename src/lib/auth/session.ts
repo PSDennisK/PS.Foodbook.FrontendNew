@@ -1,4 +1,5 @@
 import { cookies } from 'next/headers';
+
 import { jwtVerify, type JWTPayload } from 'jose';
 
 /**
@@ -31,7 +32,7 @@ export interface Session {
  * Cookie configuration
  */
 const SESSION_COOKIE_NAME = 'session';
-const JWT_SECRET = process.env.JWT_SECRET ?? 'your-secret-key'; // TODO: Set in .env
+const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key'; // TODO: Set in .env
 
 /**
  * Get the JWT secret as a Uint8Array

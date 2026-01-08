@@ -1,11 +1,14 @@
-import type { Metadata } from 'next';
+import { Geist, Geist_Mono } from 'next/font/google';
+import { notFound } from 'next/navigation';
+
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
-import { notFound } from 'next/navigation';
-import { Geist, Geist_Mono } from 'next/font/google';
 
+import { Header } from '@/components/layout/header';
 import { QueryProvider } from '@/components/providers/query-provider';
-import { locales } from '@/i18n/config';
+import { locales, type Locale } from '@/i18n/config';
+
+import type { Metadata } from 'next';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -45,7 +48,7 @@ export default async function LocaleLayout({
   const { locale } = await params;
 
   // Ensure that the incoming `locale` is valid
-  if (!locales.includes(locale as any)) {
+  if (!locales.includes(locale as Locale)) {
     notFound();
   }
 
@@ -58,7 +61,10 @@ export default async function LocaleLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <NextIntlClientProvider messages={messages}>
-          <QueryProvider>{children}</QueryProvider>
+          <QueryProvider>
+            <Header />
+            {children}
+          </QueryProvider>
         </NextIntlClientProvider>
       </body>
     </html>
