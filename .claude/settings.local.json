@@ -12,7 +12,9 @@
       "Bash(tree:*)",
       "Bash(npm run typecheck:*)",
       "Bash(npm run lint:*)",
-      "Bash(npm run format:*)"
+      "Bash(npm run format:*)",
+      "Bash(cmd /c \"if not exist src\\\\i18n mkdir src\\\\i18n\")",
+      "Bash(cmd /c \"if not exist messages mkdir messages\")"
     ]
   }
 }
