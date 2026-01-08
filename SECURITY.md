@@ -4,15 +4,20 @@ This document describes the security features implemented in this application.
 
 ## Security Headers
 
-All responses include the following security headers (configured in `middleware.ts`):
+All responses include the following security headers (configured in
+`middleware.ts`):
 
 ### HTTP Security Headers
 
-- **X-DNS-Prefetch-Control**: `on` - Allows DNS prefetching for faster page loads
-- **Strict-Transport-Security**: `max-age=31536000; includeSubDomains` - Forces HTTPS for 1 year
-- **X-Frame-Options**: `SAMEORIGIN` - Prevents clickjacking by allowing frames only from same origin
+- **X-DNS-Prefetch-Control**: `on` - Allows DNS prefetching for faster page
+  loads
+- **Strict-Transport-Security**: `max-age=31536000; includeSubDomains` - Forces
+  HTTPS for 1 year
+- **X-Frame-Options**: `SAMEORIGIN` - Prevents clickjacking by allowing frames
+  only from same origin
 - **X-Content-Type-Options**: `nosniff` - Prevents MIME type sniffing
-- **Referrer-Policy**: `strict-origin-when-cross-origin` - Only sends origin for cross-origin requests
+- **Referrer-Policy**: `strict-origin-when-cross-origin` - Only sends origin for
+  cross-origin requests
 
 ### Permissions Policy
 
@@ -206,15 +211,18 @@ NEXT_PUBLIC_ENABLE_DEVTOOLS=true
 
 ### 1. Always Use HTTPS in Production
 
-Ensure your application is served over HTTPS. The HSTS header will enforce this for returning visitors.
+Ensure your application is served over HTTPS. The HSTS header will enforce this
+for returning visitors.
 
 ### 2. Rotate JWT Secrets Regularly
 
-Change your `JWT_SECRET` periodically and whenever there's a potential compromise.
+Change your `JWT_SECRET` periodically and whenever there's a potential
+compromise.
 
 ### 3. Use HTTP-Only Cookies
 
-Never store JWT tokens in localStorage or sessionStorage. Always use HTTP-only cookies to prevent XSS attacks.
+Never store JWT tokens in localStorage or sessionStorage. Always use HTTP-only
+cookies to prevent XSS attacks.
 
 ### 4. Validate Permissions Server-Side
 
@@ -231,14 +239,15 @@ npm audit fix
 
 ### 6. Monitor Security Headers
 
-Use tools like [securityheaders.com](https://securityheaders.com) to verify your security headers are correctly configured.
+Use tools like [securityheaders.com](https://securityheaders.com) to verify your
+security headers are correctly configured.
 
 ### 7. Content Security Policy Violations
 
 Monitor CSP violations in production. Add reporting endpoint if needed:
 
 ```typescript
-report-uri /api/csp-report;
+report - uri / api / csp - report;
 ```
 
 ## Security Checklist
@@ -259,6 +268,7 @@ report-uri /api/csp-report;
 
 ## Reporting Security Issues
 
-If you discover a security vulnerability, please email: security@psinfoodservice.com
+If you discover a security vulnerability, please email:
+security@psinfoodservice.com
 
 Do not create public GitHub issues for security vulnerabilities.
