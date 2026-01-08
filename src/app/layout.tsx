@@ -1,7 +1,5 @@
 import type { ReactNode } from 'react';
 
-import { defaultLocale } from '@/i18n/config';
-
 import './globals.css';
 
 interface RootLayoutProps {
@@ -12,13 +10,9 @@ interface RootLayoutProps {
  * Root layout
  *
  * This is the top-level layout that wraps the entire application.
- * It only contains the <html> and <body> tags.
- * The actual locale-specific layout is in app/[locale]/layout.tsx
+ * With next-intl and localePrefix: 'always', the <html> and <body> tags
+ * are handled by app/[locale]/layout.tsx, so this layout only passes through children.
  */
 export default function RootLayout({ children }: RootLayoutProps) {
-  return (
-    <html lang={defaultLocale}>
-      <body>{children}</body>
-    </html>
-  );
+  return children;
 }
