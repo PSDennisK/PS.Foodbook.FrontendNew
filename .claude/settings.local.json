@@ -14,7 +14,11 @@
       "Bash(npm run lint:*)",
       "Bash(npm run format:*)",
       "Bash(cmd /c \"if not exist src\\\\i18n mkdir src\\\\i18n\")",
-      "Bash(cmd /c \"if not exist messages mkdir messages\")"
+      "Bash(cmd /c \"if not exist messages mkdir messages\")",
+      "Bash(cmd /c \"if not exist src\\\\lib\\\\api mkdir src\\\\lib\\\\api\")",
+      "Bash(cmd /c \"if not exist src\\\\lib\\\\hooks mkdir src\\\\lib\\\\hooks\")",
+      "Bash(cmd /c \"if not exist src\\\\components\\\\providers mkdir src\\\\components\\\\providers\")",
+      "Bash(cmd /c \"if not exist src\\\\app\\\\[locale] mkdir src\\\\app\\\\[locale]\")"
     ]
   }
 }
