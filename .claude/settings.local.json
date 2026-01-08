@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest:*)",
+      "Bash(npm install @tanstack/react-query @tanstack/react-query-devtools nuqs zustand next-intl react-hook-form @hookform/resolvers zod jose tailwind-merge clsx class-variance-authority lucide-react date-fns)",
+      "Bash(npm install:*)",
+      "Bash(npx shadcn@latest init)",
+      "Bash(npx shadcn@latest add button card dialog input label select checkbox slider tabs table skeleton toast dropdown-menu accordion breadcrumb badge)",
+      "Bash(npx shadcn@latest add button card dialog input label select checkbox slider tabs table skeleton dropdown-menu accordion breadcrumb badge)",
+      "Bash(npx shadcn@latest add:*)",
+      "Bash(cp:*)",
+      "Bash(tree:*)"
+    ]
+  }
+}
