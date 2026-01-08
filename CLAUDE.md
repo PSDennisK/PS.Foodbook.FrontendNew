@@ -1,12 +1,16 @@
 # CLAUDE.md - Foodbook v2 Development Guide
 
-> Dit document geeft Claude Code context over het project voor effectieve assistentie.
+> Dit document geeft Claude Code context over het project voor effectieve
+> assistentie.
 
 ## Project Overzicht
 
-**Foodbook v2** is een parallelle herbouw van de PS Foodservice productcatalogus frontend. Het is een Next.js 15 applicatie die communiceert met een bestaande C# .NET backend API.
+**Foodbook v2** is een parallelle herbouw van de PS Foodservice productcatalogus
+frontend. Het is een Next.js 15 applicatie die communiceert met een bestaande C#
+.NET backend API.
 
 ### Doelen
+
 - Moderne tech stack (Next.js 15, Tailwind 4, shadcn/ui)
 - WCAG 2.1 AA+ accessibility compliance
 - Betere performance (TanStack Query, Server Components)
@@ -14,6 +18,7 @@
 - Eenvoudiger te onderhouden codebase
 
 ### Niet in scope
+
 - Backend wijzigingen (C# API blijft ongewijzigd)
 - Nieuwe features (alleen bestaande functionaliteit)
 - Database migraties
@@ -86,7 +91,7 @@ function getProduct(id: number): Product | null {
 }
 
 // ❌ Vermijd 'any'
-function processData(data: any) { } // Niet doen
+function processData(data: any) {} // Niet doen
 ```
 
 ### React Components
@@ -211,22 +216,22 @@ NEXT_PUBLIC_WEBAPI_API_URL=https://webapi.psinfoodservice.com
 
 ### Foodbook API Endpoints
 
-| Endpoint | Method | Gebruik |
-|----------|--------|---------|
-| `/v2/Product/GetProductSheet/{id}` | GET | Product detail |
-| `/v2/Search/SearchResults` | POST | Zoeken met filters |
-| `/v2/Search/{locale}/AutoComplete/{keyword}` | GET | Autocomplete |
-| `/v2/Brand/BrandInfo/{id}` | GET | Merk informatie |
-| `/v2/Filter/List` | GET | Beschikbare filters |
+| Endpoint                                     | Method | Gebruik             |
+| -------------------------------------------- | ------ | ------------------- |
+| `/v2/Product/GetProductSheet/{id}`           | GET    | Product detail      |
+| `/v2/Search/SearchResults`                   | POST   | Zoeken met filters  |
+| `/v2/Search/{locale}/AutoComplete/{keyword}` | GET    | Autocomplete        |
+| `/v2/Brand/BrandInfo/{id}`                   | GET    | Merk informatie     |
+| `/v2/Filter/List`                            | GET    | Beschikbare filters |
 
 ### WordPress API Endpoints
 
-| Endpoint | Method | Gebruik |
-|----------|--------|---------|
-| `/wp/v2/pages?slug={slug}` | GET | Pagina content |
-| `/wp/v2/posts` | GET | Blog posts |
-| `/menus/v1/menus/{slug}` | GET | Menu items |
-| `/cf7/v1/forms/{id}/submit` | POST | Contact form |
+| Endpoint                    | Method | Gebruik        |
+| --------------------------- | ------ | -------------- |
+| `/wp/v2/pages?slug={slug}`  | GET    | Pagina content |
+| `/wp/v2/posts`              | GET    | Blog posts     |
+| `/menus/v1/menus/{slug}`    | GET    | Menu items     |
+| `/cf7/v1/forms/{id}/submit` | POST   | Contact form   |
 
 ### Query Keys Convention
 
@@ -426,11 +431,11 @@ import { useProducts } from '@/lib/hooks/use-products';
 describe('useProducts', () => {
   it('fetches products successfully', async () => {
     const { result } = renderHook(() => useProducts({ keyword: 'test' }));
-    
+
     await waitFor(() => {
       expect(result.current.isSuccess).toBe(true);
     });
-    
+
     expect(result.current.data?.products).toHaveLength(21);
   });
 });
@@ -444,10 +449,10 @@ import { test, expect } from '@playwright/test';
 
 test('user can search for products', async ({ page }) => {
   await page.goto('/nl/product');
-  
+
   await page.getByRole('searchbox').fill('tomaat');
   await page.getByRole('button', { name: 'Zoeken' }).click();
-  
+
   await expect(page.getByRole('article')).toHaveCount(21);
 });
 ```
@@ -496,11 +501,11 @@ import { useState, useEffect } from 'react';
 
 export function ClientDate() {
   const [date, setDate] = useState<string>();
-  
+
   useEffect(() => {
     setDate(new Date().toLocaleDateString());
   }, []);
-  
+
   if (!date) return null;
   return <time>{date}</time>;
 }
@@ -539,6 +544,5 @@ const t = useTranslations('Product'); // Niet 'product' (lowercase)
 
 ## Contact
 
-**Project:** Foodbook v2
-**Organisatie:** PS in Foodservice
-**Developer:** Dennis (Weblogiq)
+**Project:** Foodbook v2 **Organisatie:** PS in Foodservice **Developer:**
+Dennis (Weblogiq)
